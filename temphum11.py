@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+
+# This is for use with a DHT11 sensor
 import sys
 import Adafruit_DHT
 import datetime
