@@ -15,7 +15,8 @@ import csv
 # the following will be edited to do the above automaticaly. not finished yet:
 # soiltemp1 = os.
 
-soiltemp1 = '28-01145b6e2158'
+# HARDCODED DEVICE NAME: CHANGE YOURS TO MATCH YOUR DEVICE
+soiltemp1 = 'YOURDEVICE'
 
 # delete hardcoding of name after above code is finished:
 # function to read the temperature from ds18b20 sensor on i2cdef 
