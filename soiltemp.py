@@ -1,4 +1,7 @@
 #!/usr/bin/env python3 
+
+# for use with DS18b20 sensor 
+
 import os
 import datetime
 import csv
@@ -9,12 +12,13 @@ import csv
 # TEMPERATURE SENSOR ( EG: 28-00000xxxxxx ). EACH DS18B20 HAS ITS OWN HARDCODED ADDRESS
 
 
-#the following will be edited to do the above automaticaly. not finished yet:
+# the following will be edited to do the above automaticaly. not finished yet:
 # soiltemp1 = os.
 
 soiltemp1 = '28-01145b6e2158'
 
-# delete hardcoding of name after aboe code is finished:# function to read the temperature from ds18b20 sensor on i2cdef 
+# delete hardcoding of name after above code is finished:
+# function to read the temperature from ds18b20 sensor on i2cdef 
 def read_temperature():
 	tempfile = open('/sys/bus/w1/devices/{}/w1_slave'.format(soiltemp1))
 	thetext = tempfile.read()
