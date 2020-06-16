@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+# for use with a DHT22 sensor 
+
 import Adafruit_DHT as dht
 import datetime
 import os
