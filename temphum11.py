@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # This is for use with a DHT11 sensor
-import sys
+
 import Adafruit_DHT
 import datetime
 import csv
@@ -14,7 +14,7 @@ now = datetime.datetime.now()
 csvFile = 'THstats.csv'
 
 # create csv heading if not already existant
-firstRow = "Temperature, Humidity, Date, Time"
+firstRow = "Temperature [C], Humidity [%], Date [ymd], Time"
 if not os.access(csvFile,os.F_OK):
   with open(csvFile, 'a') as fd:
     fd.write(firstRow)
