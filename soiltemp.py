@@ -5,23 +5,18 @@
 import os
 import datetime
 import csv
+import subprocess
 # NOTE: BEFORE THIS PROGRAM WILL WORK FOR THE FIRST TIME,
 # "dtoverlay=w1-gpio" MUST BE APPENDED TO THE BOTTOM OF /boot/config.txt
 # PI SHOULD THEN BE REBOOTED
-# THEN "ls -l /sys/bus/w1/devices" IN THE COMMAND LINE TO SEE THE ADDRESS OF YOUR
-# TEMPERATURE SENSOR ( EG: 28-00000xxxxxx ). EACH DS18B20 HAS ITS OWN HARDCODED ADDRESS
 
+# Identify the w1 slave name:
+com = subprocess.check_output('ls -l /sys/bus/w1/devices', shell=True)
+devName = com[46:61]
 
-# the following will be edited to do the above automaticaly. not finished yet:
-# soiltemp1 = os.
-
-# HARDCODED DEVICE NAME: CHANGE YOURS TO MATCH YOUR DEVICE
-soiltemp1 = '28-01145b6e2158'
-
-# delete hardcoding of name after above code is finished:
 # function to read the temperature from ds18b20 sensor on i2cdef 
 def read_temperature():
-	tempfile = open('/sys/bus/w1/devices/{}/w1_slave'.format(soiltemp1))
+	tempfile = open('/sys/bus/w1/devices/{}/w1_slave'.format(devName))
 	thetext = tempfile.read()
 	tempfile.close()
 	tempdata = thetext.split('\n')[1].split(' ')[9]
