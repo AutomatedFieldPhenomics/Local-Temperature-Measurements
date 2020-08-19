@@ -56,6 +56,9 @@ if lightVal >0:
 	dir = "images/%s" % now.strftime("%Y-%m-%d")
 	if not os.path.exists(dir):
 		os.makedirs(dir)
+	gains2 = (0.74,1.18)
+	camera.awb_mode = 'off'
+	camera.awb_gains = gains2
 	camera.capture('%s/%s.png' % (dir, now.strftime("%H:%M:%S")))
 
 
